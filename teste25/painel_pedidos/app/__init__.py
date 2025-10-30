@@ -52,7 +52,10 @@ def create_app():
 
     # 3. CRIAMOS AS TABELAS NO BANCO DE DADOS
     # Este bloco de código lê seus models.py e cria as tabelas no arquivo site.db
+    from . import models
     with app.app_context():
+        db.drop_all()
+        print("apagando tabelas")
         db.create_all()
         print("Banco de dados inicializado e tabelas criadas (se necessário).")
 
